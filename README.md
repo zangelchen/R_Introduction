@@ -1,4 +1,4 @@
-#Data Analysis with R
+# Data Analysis with R
 
 <ins>Introduction to Probability and Data with R <ins>
 *Concepts*
