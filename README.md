@@ -1,6 +1,7 @@
 # Data Analysis with R
 
 <ins>Introduction to Probability and Data with R <ins>
+
 *Concepts*
   - Quantitative vs Qualitative Data (Continuous, Discrete, Ordinal)
   - Sampling and Bias (Methods and Sources of Bias)
