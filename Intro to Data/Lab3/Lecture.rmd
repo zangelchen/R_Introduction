@@ -1,0 +1,82 @@
+---
+title: "Normal Distribution and Binomial Distribution"
+output: statsr:::statswithr_lab
+---
+___
+### Normal Distribution
+___
+**Question 1**
+Suppose weights of checked baggage of airline passengers follow a nearly normal distribution with mean 45 pounds and standard deviation 3.2 pounts. Most arlines charge a fee for baggage that weigh in excess of 50 pounds. What percent of airline passengers are expected to incur this fee? 
+
+*Method 1: R*
+```{r percentile-pnorm}
+pnorm(50, mean=45, sd = 3.2)
+```
+
+**_NOTE:_** pnorm provides the cumulative density of the normal distribution at a specific quantile. Area under the curve aka the "cumulative density". <div>
+
+\
+*Method 2: Hand Calculation*<div>
+1. Calculate z score
+    z = (observed value - mean)/standard deviation
+      = (50-45)/3.2 
+      = 1.56
+2. Find the z value in the z-chart 
+    P(z) ~ 0.9406
+3. Calculating in **excess** of 50
+    P( z>1.56 ) = 1-0.9406 = 0.0594
+
+*Method 3: Applet*
+
+___
+**Question 2**
+
+The average daily high temperature in June in LA is 77 with a standard deviation of 5. Suppose that the temperatures in June closely follow a normal distribution. How cold are the coldest 20% of the days during June in LA? 
+
+*Method 1: R*
+```{r percentile-qnorm}
+qnorm(0.20,mean=77,sd=5)
+```
+
+qnorm provides the quantile of the normal distribution at a specified cumulative density. Aka finding the number on the bottom. 
+
+*Method 2: Hand Calculation*
+
+1. Find the z value in the z-chart 
+    0.20 percentile corresponds to a z-value of -0.84
+2. Calculate observed value using z-score
+        z = (observed value - mean)/standard deviation
+    -0.84 = (x-77)/5
+        x = 72.8
+        
+*Method 3: Applet*
+
+___
+### Binomial Distribution
+___
+
+According to a 2013 Gallup poll, worldwide only 13% of employees are engaged at work. AMong a random sample of 10 employees, what is the probability that 8 of them are engaged at work? 
+  
+- n=10         
+- k=8
+- p=0.13     
+- 1-p=0.87    
+
+```{R binomial-distribution}
+dbinom(8, size=10, p=0.13)
+```
+
+
+
+
+
+
+
+___
+**Load Data**
+
+```{r load-data}
+library(dplyr)
+library(ggplot2)
+library(statsr)
+```
